@@ -1,0 +1,130 @@
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background-color: #0d0d0d;
+    color: #E5E7EB;
+}
+/* Scanline overlay for retro monitor effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 9999;
+}
+.heading-font {
+    font-family: 'Chakra Petch', sans-serif;
+}
+.hero-text {
+    font-weight: 700;
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+.retro-text-glow {
+    color: #39FF14; /* Neon Green */
+    text-shadow: 
+        0 0 5px rgba(57, 255, 20, 0.7),
+        0 0 10px rgba(57, 255, 20, 0.7),
+        0 0 20px rgba(57, 255, 20, 0.6),
+        0 0 40px rgba(57, 255, 20, 0.5);
+}
+.card {
+    background-color: #1a1a1a;
+    border: 1px solid #374151;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border-radius: 0; /* Sharp corners */
+}
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #39FF14;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+}
+
+/* Header Logo */
+.header-logo {
+    height: 40px;
+    transition: filter 0.3s ease;
+}
+.header-logo:hover {
+    filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.8));
+}
+
+/* Hero background */
+#home {
+    position: relative;
+    overflow: hidden;
+}
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://cdn.dribbble.com/userupload/30551996/file/original-bfa0572db9dd9c3d9a855073fcfc655c.gif');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 1;
+    filter: grayscale(1); /* Makes the GIF black and white */
+}
+ #home > div {
+    position: relative;
+    z-index: 2;
+}
+
+/* Software scroller styles */
+.scroller {
+    max-width: 900px;
+    overflow: hidden;
+    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+.scroller-inner {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+    padding: 1.5rem 0; /* Increased padding to prevent clipping on hover */
+}
+.scroller-inner img {
+    height: 60px;
+    /* Makes logos white */
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+}
+.scroller-inner img:hover {
+    transform: scale(1.1);
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(57, 255, 20, 0.7));
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX(calc(-50% - 1rem));
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0d0d0d;
+}
+::-webkit-scrollbar-thumb {
+    background: #39FF14;
+    border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #90ee90;
+}

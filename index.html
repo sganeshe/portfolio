@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z3NDA | Graphic Designer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background-color: #0d0d0d;
+            color: #E5E7EB;
+        }
+        /* Scanline overlay for retro monitor effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.4),
+                rgba(0, 0, 0, 0.4) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .heading-font {
+            font-family: 'Chakra Petch', sans-serif;
+        }
+        .hero-text {
+            font-weight: 700;
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 1;
+            text-transform: uppercase;
+        }
+        .retro-text-glow {
+            color: #39FF14; /* Neon Green */
+            text-shadow: 
+                0 0 5px rgba(57, 255, 20, 0.7),
+                0 0 10px rgba(57, 255, 20, 0.7),
+                0 0 20px rgba(57, 255, 20, 0.6),
+                0 0 40px rgba(57, 255, 20, 0.5);
+        }
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #374151;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border-radius: 0; /* Sharp corners */
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #39FF14;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+        }
+        
+        /* Header Logo */
+        .header-logo {
+            height: 40px;
+            transition: filter 0.3s ease;
+        }
+        .header-logo:hover {
+            filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.8));
+        }
+
+        /* Hero background */
+        #home {
+            position: relative;
+            overflow: hidden;
+        }
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://cdn.dribbble.com/userupload/30551996/file/original-bfa0572db9dd9c3d9a855073fcfc655c.gif');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 1;
+            filter: grayscale(1); /* Makes the GIF black and white */
+        }
+         #home > div {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Software scroller styles */
+        .scroller {
+            max-width: 900px;
+            overflow: hidden;
+            -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+            mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+        }
+        .scroller-inner {
+            display: flex;
+            gap: 2rem;
+            width: max-content;
+            animation: scroll 30s linear infinite;
+            padding: 1.5rem 0; /* Increased padding to prevent clipping on hover */
+        }
+        .scroller-inner img {
+            height: 60px;
+            /* Makes logos white */
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+        }
+        .scroller-inner img:hover {
+            transform: scale(1.1);
+            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(57, 255, 20, 0.7));
+        }
+        
+        /* Behance logo styling */
+        .behance-logo-img {
+            filter: grayscale(1) brightness(0.7); /* Starts gray, like other icons */
+            transition: filter 0.3s ease;
+        }
+        a:hover .behance-logo-img {
+            filter: grayscale(0) brightness(1); /* Becomes white on hover */
+        }
+
+        @keyframes scroll {
+            to {
+                transform: translateX(calc(-50% - 1rem));
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0d0d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #39FF14;
+            border-radius: 0;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #90ee90;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#">
+                <image src="https://i.postimg.cc/B6C9t4Wq/1622736405545.png" alt="Z3NDA Logo" class="header-logo">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-lime-400 transition-colors">About</a>
+                <a href="#works" class="hover:text-lime-400 transition-colors">Works</a>
+                <a href="#contact" class="hover:text-lime-400 transition-colors">Contact</a>
+            </nav>
+            <div class="md:hidden">
+                <!-- Mobile menu can be added here if needed -->
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center text-center px-4">
+            <div class="space-y-6">
+                <h1 class="hero-text heading-font">
+                    <span class="retro-text-glow">Z3NDA</span><br>
+                    <span class="text-gray-300">Cover Artist</span>
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-400">
+                    > Crafting bold, story-driven visuals for the Indian hip-hop scene.
+                </p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-12 items-center">
+                    <div class="md:col-span-1">
+                        <h2 class="text-3xl md:text-4xl mb-4 uppercase tracking-widest heading-font">About Me</h2>
+                         <div class="w-24 h-1 bg-lime-400"></div>
+                    </div>
+                    <div class="md:col-span-2 text-gray-300 space-y-4 text-lg">
+                        <p>
+                            I'm Saumya, a cover artist crafting bold, story-driven visuals for the Indian hip-hop scene. I've worked with artists like Panther and Prabh Deep, creating cover art that captures the raw energy and narratives of their music.
+                        </p>
+                        <p>
+                            My design style blends gritty textures, expressive typography, and cultural elements, aiming to translate sound into striking visuals that stand out on streaming platforms and social media.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Toolkit/Software Section -->
+        <section id="toolkit" class="py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-2xl text-center mb-10 uppercase tracking-widest heading-font">My Toolkit</h2>
+                <div class="scroller mx-auto">
+                    <div class="scroller-inner">
+                        <!-- Logos are duplicated for a seamless loop -->
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop" title="Photoshop" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator" title="Illustrator" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-plain.svg" alt="After Effects" title="After Effects" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg" alt="Premiere Pro" title="Premiere Pro" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" alt="Blender" title="Blender" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" title="Figma" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva" title="Canva" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/121/121138.png" alt="Lightroom" title="Lightroom"/>
+                        
+                        <!-- Duplicates -->
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop" title="Photoshop" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator" title="Illustrator" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-plain.svg" alt="After Effects" title="After Effects" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg" alt="Premiere Pro" title="Premiere Pro" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" alt="Blender" title="Blender" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" title="Figma" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva" title="Canva" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/121/121138.png" alt="Lightroom" title="Lightroom"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section id="works" class="py-20 md:py-32 bg-[#1a1a1a]/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl mb-4 uppercase tracking-widest heading-font">My Works</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">> A selection of cover art that captures the raw energy and narratives of music.</p>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project Card 1 -->
+                    <div class="card overflow-hidden group">
+                        <img src="https://i.postimg.cc/nryPkhDb/Thappad-final-poster.png" alt="Cover art for Thappad" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl heading-font">Thappad</h3>
+                            <p class="text-sm text-gray-400 mb-2">Prabhdeep</p>
+                            <p class="text-gray-300">Official Cover for Prabhdeep's Thappad</p>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="card overflow-hidden group">
+                        <img src="https://i.postimg.cc/SQ12KzWt/01-with-text.png" alt="Cover art for Panther" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl heading-font">Sajke</h3>
+                            <p class="text-sm text-gray-400 mb-2">Panther ft. Iqlipse Nova</p>
+                            <p class="text-gray-300">Fanart for Sajke by Panther and Iqlipse Nova, showcasing the vibe of the song through colors.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 3 -->
+                    <div class="card overflow-hidden group">
+                        <img src="https://i.postimg.cc/prCg2H9g/khoon.png" alt="Cover art for Khoon" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl heading-font">Khoon</h3>
+                            <p class="text-sm text-gray-400 mb-2">Seedhe Maut x Sikander Kahlon</p>
+                            <p class="text-gray-300">A glowing spear against a dark dojo backdrop sets the tone for intensity and cultural power.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="card overflow-hidden group">
+                        <img src="https://i.postimg.cc/cCkX94t4/punya-paap.png" alt="Cover art for Punya Paap" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl heading-font">Punya Paap</h3>
+                            <p class="text-sm text-gray-400 mb-2">Divine</p>
+                            <p class="text-gray-300">Inverted tones with twin temple pillars symbolize the duality of virtue and sin.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5 -->
+                    <div class="card overflow-hidden group">
+                        <img src="https://i.postimg.cc/Pf06wNH2/TS01-pink.png" alt="Cover art for Tere Siwa" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl heading-font">Tere Siwa</h3>
+                            <p class="text-sm text-gray-400 mb-2">Saswat Balan</p>
+                            <p class="text-gray-300">CRT effect with neon pink glows create a chaotic, cyberpunk vibe.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 6 -->
+                    <div class="card overflow-hidden group">
+                        <img src="https://i.postimg.cc/VNjw32Rc/Sahiba.png" alt="Cover art for Sahiba" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl heading-font">Sahiba</h3>
+                            <p class="text-sm text-gray-400 mb-2">Arya x    Hardbone Boy</p>
+                            <p class="text-gray-300">A moody train window view with red neon typography captures a reflective, emotional tone.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 7 -->
+                    <div class="card overflow-hidden group">
+                        <img src="https://i.postimg.cc/MTvCz40T/spidermon.png" alt="Cover art for Spider-Man Fanart" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl heading-font">Into the Spider-Verse</h3>
+                            <p class="text-sm text-gray-400 mb-2">Fanart</p>
+                            <p class="text-gray-300">A bold red spider emblem overlays an upside-down New York skyline, keeping focus on the hero's journey.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 8 -->
+                    <div class="card overflow-hidden group">
+                        <img src="https://i.postimg.cc/yYzbGWGW/Super-Villian-01.png" alt="Cover art for Supervillain" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl heading-font">Supervillain</h3>
+                            <p class="text-sm text-gray-400 mb-2">Gravity</p>
+                            <p class="text-gray-300">A neon green sci-fi lab with glitchy type and a holographic emblem brings out comic-inspired chaos.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 9 -->
+                    <div class="card overflow-hidden group">
+                        <img src="https://i.postimg.cc/DztgbMkm/final.png" alt="Cover art for Supra" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl heading-font">Supra</h3>
+                            <p class="text-sm text-gray-400 mb-2">Tribute Art</p>
+                            <p class="text-gray-300">A tribute to car culture, layering shots of the Toyota Supra with sharp chrome text and moody red lighting.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl mb-4 uppercase tracking-widest heading-font">Get In Touch</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-8">
+                    > Have a project in mind or want to collaborate? Let's connect.
+                </p>
+                <a href="mailto:officialzendacross@gmail.com" class="inline-block bg-lime-500 text-black font-bold py-3 px-8 hover:bg-lime-400 transition-colors text-lg tracking-wider">
+                    officialzendacross@gmail.com
+                </a>
+                <div class="flex justify-center space-x-6 mt-12">
+                    <a href="https://x.com/z3ndadotpsd" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <i data-feather="twitter" class="w-8 h-8"></i>
+                    </a>
+                    <a href="https://instagram.com/buildingz3nda" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <i data-feather="instagram" class="w-8 h-8"></i>
+                    </a>
+                    <a href="https://www.behance.net/Z3NDA" target="_blank">
+                        <img src="https://img.icons8.com/?size=100&id=16280&format=png&color=FFFFFF" alt="Behance Logo" class="w-8 h-8 behance-logo-img" />
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+             <p>&copy; 2025 Z3NDA. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                // Only scroll smoothly if the href is more than just a '#'
+                if (href && href.length > 1) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    // Ensure the target element exists before trying to scroll
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
