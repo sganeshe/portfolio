@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #370139;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #370139;
+}
+::-webkit-scrollbar-thumb {
+  background: #a5fc29;
+  border-radius: 4px;
+}
+
+/* Cursor Hiding for Desktop */
+@media (min-width: 768px) {
+  body {
+    cursor: none;
+  }
+}
