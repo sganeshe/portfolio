@@ -62,7 +62,7 @@ const DetailModal = ({ isOpen, onClose, data, type }) => {
                      rel="noreferrer"
                      className="px-6 py-2 border border-[#a5fc29] text-[#a5fc29] font-bold hover:bg-[#a5fc29]/10 transition-colors cursor-pointer flex items-center justify-center gap-2"
                    >
-                      <Code size={16} /> VIEW SRC CODE
+                      <Code size={16} /> VIEW PROJECT
                    </a>
                  )}
                  

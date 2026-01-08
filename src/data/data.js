@@ -19,12 +19,28 @@ export const DATA = {
   ],
   projects: [
     {
-      name: "K-MEANS QUANTIZER",
-      tech: "PYTHON / SCIKIT-LEARN / NUMPY / PILLOW / TKINTER",
-      desc: "Desktop app extracting color palettes via clustering algorithms. 60% faster computation using Lanczos resampling.",
-      stat: "OP: ZERO_LATENCY",
-      details: "Engineered a data processing pipeline using NumPy to transform high-dimensional 3D RGB pixel data into structured 2D arrays. Optimized application performance by implementing Python Multithreading to decouple CPU-intensive ML algorithms from the main GUI thread.",
-      srcLink: "https://github.com/sganeshe/color-palette-extractor" // ADD YOUR LINK HERE
+      name: "DEFCON",
+      tech: "JAVASCRIPT / THREE.JS / NODE.JS / PYTHON / CSS3",
+      desc: "3D GEOSPATIAL VISUALIZATION DASHBOARD RENDERING REAL TIME CYBER-THREAT VECTORS.",
+      stat: "OP: LOW_DOWNTIME",
+      details: "Developed a hybrid backend architecture orchestrating a Node.js web server to serve assets while asynchronously integrating with a Python intelligence engine for complex threat data generation.",
+      srcLink: "https://defcon-terminal.onrender.com/" // ADD YOUR LINK HERE
+    },
+    {
+      name: "CENTROID",
+      tech: "PYTHON / SCIKIT-LEARN / JAVASCRIPT / CSS3",
+      desc: "PALETTE EXTRATOR BY USING DOMINANT COLOR CENTROIDS FROM RGB PIXEL DATA.",
+      stat: "OP: WCAG 2.1 ACCESSIBLITY",
+      details: "Engineered a Clustering algorithm to mathematically extract dominant color centroids from high-dimensional RGB pixel data, ensuring statistically accurate palette generation compared to standard frequency sorting.",
+      srcLink: "https://centroid-v1.onrender.com/" // ADD YOUR LINK HERE
+    },
+    {
+      name: "SOMA",
+      tech: "PYTHON / OPENCV / NUMPY / JAVASCRIPT",
+      desc: "NOVEL COMPUTER VISION PIPELINE TO AUTOMATE DETECTION OF LUNAR BOULDERS & LANDSLIDES.",
+      stat: "OP: DETAILED STAT REPORT",
+      details: "Built a responsive full-stack web interface enabling researchers to upload satellite DTM/TMC datasets and visualize segmentation results with dimension estimation (diameter, area) in real-time.",
+      srcLink: "https://soma-zspu.onrender.com/" // ADD YOUR LINK HERE
     }
   ],
   designCatalog: [
