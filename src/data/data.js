@@ -19,6 +19,14 @@ export const DATA = {
   ],
   projects: [
     {
+      name: "LUMAFORGE",
+      tech: "JAVASCRIPT / REACT.JS / WEBGL FILTERS / SUPABASE / HTML5 / CSS3",
+      desc: "AN OPEN-SOURCE MAINFRAME THAT STEGANOGRAPHICALLY BAKES MATHEMATICAL NODE TREES DIRECTLY INTO YOUR PIXELS.",
+      stat: "OP: METADATA_ENRICHED",
+      details: "An open-source optics engine built with React and the HTML5 Canvas API to deliver professional color grading natively in the browser. It utilizes custom steganography to bake complex mathematical node trees directly into PNG metadata, turning every exported image into a self-contained preset. Backed by a highly optimized PostgreSQL Supabase architecture to power a zero-latency global community feed.",
+      srcLink: "https://lumaforge-optics.vercel.app/" // ADD YOUR LINK HERE
+    },
+    {
       name: "DEFCON",
       tech: "JAVASCRIPT / THREE.JS / NODE.JS / PYTHON / CSS3",
       desc: "3D GEOSPATIAL VISUALIZATION DASHBOARD RENDERING REAL TIME CYBER-THREAT VECTORS.",
